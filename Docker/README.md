@@ -9,10 +9,10 @@
 
 - *Create a container instance from your docker image and it should use the new bridge network*
 
-## Workthrougt 
+## Workthrought 
 #### Setup envoiment
 - install ```docker``` 
-- install ```node js`` *for develop app and test it locally*
+- install ```node js``` *for develop app and test it locally*
 
 #### Develop NodeJS App
 - create new directory ```zeroApp```
