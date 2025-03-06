@@ -12,7 +12,7 @@
 ## Workthrougt 
 #### Setup envoiment
 - install ```docker``` 
-- install ```node js`` *for develop app and test it locally*
+- install ```node js``` *for develop app and test it locally*
 
 #### Develop NodeJS App
 - create new directory ```zeroApp```
