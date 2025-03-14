@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroSpolit</title>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #00ff99;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99;
+        }
+        .container {
+            text-align: center;
+            border: 2px solid #00ff99;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(0, 255, 153, 0.1);
+            box-shadow: 0 0 15px #00ff99;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+        .hostname {
+            font-size: 1.5rem;
+            color: #ff0099;
+            text-shadow: 0 0 10px #ff0099, 0 0 20px #ff0099;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello ZeroSpolit</h1>
+        <p class="hostname">{{ hostname }}</p>
+    </div>
+</body>
+</html>
