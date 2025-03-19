@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: alyesmaeil/backend-todo:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_DATA_MONGODB_URI
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secrets
+              key: mongo-uri
+        - name: SPRING_DATA_MONGODB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secrets
+              key: mongo-username
+        - name: SPRING_DATA_MONGODB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secrets
+              key: mongo-password
+        - name: SPRING_DATA_MONGODB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: mongo-config
+              key: SPRING_DATA_MONGODB_HOST
+        - name: SPRING_DATA_MONGODB_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: mongo-config
+              key: SPRING_DATA_MONGODB_PORT
+        - name: SPRING_DATA_MONGODB_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              name: mongo-config
+              key: SPRING_DATA_MONGODB_DATABASE
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  labels:
+    app: backend
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: backend
